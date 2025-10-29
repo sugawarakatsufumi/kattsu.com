@@ -1,0 +1,12 @@
+$bootstrap-icons-font-dir: "../fonts"; 
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+@import "../../node_modules/modaal/dist/css/modaal.scss";
+@import "_variable";
+@import "_destyle";
+@import "_lib.scss";
+@import "_variable.scss";
+
+/*ページ別スタイル*/
+@import "_common";
+@import "_front";
+@import "_lower";

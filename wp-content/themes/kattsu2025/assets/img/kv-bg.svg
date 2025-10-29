@@ -1,0 +1,40 @@
+<svg width="1366" height="641" viewBox="0 0 1366 641" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0)">
+    <rect width="1366" height="641" fill="#EBF6F9" />
+
+    <!-- Circle 1 -->
+    <circle cx="368" cy="233" r="118" fill="#D7E8F1">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 10,-15; -20,10; 15,10; -10,-20; 0,0"
+        dur="22s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Circle 2 -->
+    <circle cx="1275.5" cy="311.5" r="290.5" fill="#0466A3" fill-opacity="0.08">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -25,15; 15,-25; -10,20; 10,-10; 0,0"
+        dur="28s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Circle 3 -->
+    <circle cx="1002" cy="469" r="118" fill="#0466A3" fill-opacity="0.1">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; -10,-18; 8,12; -6,18; 10,-6; 0,0"
+        dur="19s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Blob-style background -->
+    <path d="M178.5 944C374.837 944 534 784.837 534 588.5C534 392.163 374.837 233 178.5 233C-17.8372 233 -177 392.163 -177 588.5C-177 784.837 -17.8372 944 178.5 944Z"
+      fill="white" fill-opacity="0.5">
+      <animateTransform attributeName="transform" type="translate"
+        values="0,0; 20,-30; -30,20; 25,-15; -15,25; 0,0"
+        dur="32s" repeatCount="indefinite" />
+    </path>
+
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <rect width="1366" height="641" fill="white" />
+    </clipPath>
+  </defs>
+</svg>

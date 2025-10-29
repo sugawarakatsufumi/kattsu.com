@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_1" data-name="レイヤー_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1358 196">
+  <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <defs>
+    <mask id="mask" x="-176" y="-279" width="1732.8" height="923" maskUnits="userSpaceOnUse">
+      <g id="mask0_628_185">
+        <rect y="0" width="1358" height="196" fill="#fff"/>
+      </g>
+    </mask>
+  </defs>
+  <g mask="url(#mask)">
+    <g>
+      <ellipse cx="365.8" cy="-67" rx="117.3" ry="118" fill="#d7e8f1"/>
+      <ellipse cx="1268" cy="11.5" rx="288.8" ry="290.5" fill="#0466a3" fill-opacity=".1"/>
+      <ellipse cx="996.1" cy="169" rx="117.3" ry="118" fill="#0466a3" fill-opacity=".1"/>
+      <ellipse cx="177.5" cy="288.5" rx="353.4" ry="355.5" fill="#fff" fill-opacity=".7"/>
+    </g>
+  </g>
+</svg>
