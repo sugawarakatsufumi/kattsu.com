@@ -9534,6 +9534,16 @@ body {
   }
 }
 
+body.admin-bar .header {
+  top: 32px;
+}
+
+@media screen and (max-width: 767px) {
+  #wpadminbar {
+    display: none;
+  }
+}
+
 a, input[type=submit], button {
   transition: all 0.2s;
 }

@@ -5,6 +5,7 @@ $section-bottom:px-to-vw(60);
 $section-sp-bottom:px-to-vw(30, 375);
 $section-pd-base:px-to-vw(60);
 $section-sp-pd-base:px-to-vw(30, 375);
+$admin-bar-height: 32px;
 html{
   font-size: px-to-vw(16);
   scroll-behavior: smooth;
@@ -24,6 +25,16 @@ body{
   @include mq(sp){
     padding-top: $header-sp-height;
     font-size: 1.4rem;
+  }
+}
+body.admin-bar{
+  .header{
+    top:$admin-bar-height;
+  }
+}
+#wpadminbar{
+  @include mq(sp){
+    display:none;
   }
 }
 a,input[type="submit"], button{
