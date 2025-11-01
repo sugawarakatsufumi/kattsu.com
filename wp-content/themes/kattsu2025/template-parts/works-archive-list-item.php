@@ -4,11 +4,12 @@
           $workstags = get_the_terms( get_the_ID(), 'works-tag' );
           $workscats = get_the_terms( get_the_ID(), 'works-cat' );
           $dtpFlg = in_array( 'dtp', wp_list_pluck( $workscats, 'slug' ) );
+          $screenshotPcOnly = get_field('screenshot_pc_only');
         ?>
         <a href="<?php the_permalink(); ?>" class="works-item-link">
-          <figure class="works-item-figure <?php if ($dtpFlg) echo 'cat-dtp'; ?>">
+          <figure class="works-item-figure <?php if ($screenshotPcOnly) echo 'cat-dtp'; ?>">
             <div class="works-item-pc-img"><img src="<?php echo $thumbPc["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?> イメージ"></div>
-            <?php if (!$dtpFlg) :?>
+            <?php if (!$screenshotPcOnly) :?>
               <div class="works-item-sp-img"><img src="<?php echo $thumbSp["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?>イメージ スマホ表示"></div>
             <?php endif; ?>
           </figure>

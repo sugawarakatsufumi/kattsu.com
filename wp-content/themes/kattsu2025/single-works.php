@@ -2,29 +2,42 @@
 <?php 
   $thumbPc = get_field('screenshot_pc_thumb');
   $thumbSp = get_field('screenshot_sp_thumb');
+  $screenshotPc = get_field('screenshot_pc');
+  $screenshotSp = get_field('screenshot_sp');
   $workstags = get_the_terms( get_the_ID(), 'works-tag' );
   $workscats = get_the_terms( get_the_ID(), 'works-cat' );
   $dtpFlg = in_array( 'dtp', wp_list_pluck( $workscats, 'slug' ) );
+  $screenshotPcOnly = get_field('screenshot_pc_only');
 ?>
 <section class="works-detail ka2-container">
   <div class="works-detail-inner">
-    <figure class="works-detail-eyecatch <?php if ($dtpFlg) echo 'cat-dtp'; ?>">
+    <figure class="works-detail-eyecatch <?php if ($screenshotPcOnly) echo 'cat-dtp'; ?>">
       <div class="works-detail-eyecatch-pc-img">
         <img src="<?php echo $thumbPc["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?> イメージ">
       </div>
-      <?php if (!$dtpFlg): ?>
+      <?php if (!$screenshotPcOnly): ?>
         <div class="works-detail-eyecatch-sp-img">
           <img src="<?php echo $thumbSp["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?> イメージ スマホ表示">
         </div>
       <?php endif; ?>
-      <button data-modaal-content-source="#screenshot-pc" class="modaal works-detail-eyecatch-pc-zoom-btn">　</button>
-      <button data-modaal-content-source="#screenshot-sp" class="modaal works-detail-eyecatch-sp-zoom-btn">　</button>
+      <?php if ($screenshotPc): ?>
+        <button data-modaal-content-source="#screenshot-pc" class="modaal works-detail-eyecatch-pc-zoom-btn">　</button>
+        <div id="screenshot-pc" style="display:none">
+          <figure style="text-align:center"><img src="<?php echo $screenshotPc["sizes"]["large"]; ?>" style="width:100%"></figure>
+        </div>
+      <?php endif; ?>
+      <?php if (!$screenshotPcOnly && $screenshotSp): ?>
+        <button data-modaal-content-source="#screenshot-sp" class="modaal works-detail-eyecatch-sp-zoom-btn">　</button>
+        <div id="screenshot-sp" style="display:none">
+          <figure style="text-align:center"><img src="<?php echo $screenshotSp["sizes"]["large"]; ?>" style="max-width:100%;width:375px"></figure>
+        </div>
+      <?php endif; ?>
     </figure>
-    <div id="screenshot-pc" style="display:none">
-      <figure style="text-align:center"><img src="https://mercart.jp/cms/images/contents/19/pris_cap_pc.jpg" style="width:100%"></figure>
-    </div>
-    <div id="screenshot-sp" style="display:none">かきくけこ</div>
-    <p class="works-detail-zoom-msg"><i class="bi bi-zoom-in"></i>クリックでサイトキャプチャを表示できます</p>
+    <p class="works-detail-zoom-msg">
+      <?php if($screenshotPc || $screenshotSp): ?>
+      <i class="bi bi-zoom-in"></i>クリックでサイトキャプチャを表示できます
+      <?php endif; ?>
+    </p>
     <section class="detail-contents-main">
       <?php the_content(); ?>
     </section>
@@ -38,9 +51,9 @@
         <?php endforeach; ?>
       </ul>
       <div class="meta-date">
-        <time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="posted-date">
+        <!--<time datetime="<?php echo get_the_date('Y-m-d'); ?>" class="posted-date">
           公開日 <?php echo get_the_date(); ?>
-        </time>
+        </time>-->
       </div>
     </section>
   </div>
