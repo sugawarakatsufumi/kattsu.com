@@ -8,6 +8,7 @@
       <li class="footer-nav-item"><a href="/#office">事務所情報</a></li>
       <li class="footer-nav-item"><a href="/profile/">代表プロフィール</a></li>
       <li class="footer-nav-item"><a href="/privacy-policy/">プライバシーポリシー</a></li>
+      <li class="footer-nav-item"><a href="https://archive.kattsu.com" target="_blank">アーカイブサイト</a></li>
       <li class="footer-nav-item"><a href="/inquiry/" class="footer-cta-button">お問い合わせ</a></li>
     </ul>
   </nav>

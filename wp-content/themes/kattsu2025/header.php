@@ -2,6 +2,13 @@
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="utf-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MDM5JMV7');</script>
+  <!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php wp_head(); ?>
   <meta name="format-detection" content="telephone=no">
@@ -10,9 +17,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=M+PLUS+Rounded+1c:wght@400;700;800&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css">
-  <link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css">
 </head>
 <body <?php body_class(); ?> >
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDM5JMV7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <header class="header">
   <div  class="header-inner">
     <div class="header-logo">
@@ -33,7 +43,7 @@
     </nav>
   </div><!--/.header-inner-->
 </header>
-<button class="header-sp-menu-btn sp-only">
+<button class="header-sp-menu-btn sp-only" aria-label="メニュー開閉ボタン">
   <span></span>
   <span></span>
   <span></span>
