@@ -10206,6 +10206,7 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 .works-item-pc-img {
   width: 20.5710102489vw;
@@ -10592,6 +10593,13 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
   content: "\f285";
   vertical-align: top;
 }
+.pankz .breadcrumb li:last-of-type a {
+  overflow: hidden;
+  max-width: 36.6032210835vw;
+  display: inline-block;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
 .pankz .breadcrumb li:last-of-type:after {
   display: none;
 }
@@ -10602,6 +10610,7 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
   flex-wrap: wrap;
   gap: 0.7320644217vw;
   margin-bottom: 2.196193265vw;
+  padding-top: 10px;
 }
 @media screen and (max-width: 767px) {
   .works-cat-list {
@@ -10624,7 +10633,7 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
     border-radius: 13.3333333333vw;
   }
 }
-.works-cat-list-item-tag:hover {
+.works-cat-list-item-tag:hover, .works-cat-list-item-tag.current {
   background: #0362A1;
   color: #fff;
 }
@@ -10681,6 +10690,7 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 .works-detail-eyecatch-pc-zoom-btn, .works-detail-eyecatch-sp-zoom-btn {
   z-index: 2;
@@ -10696,7 +10706,7 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
 .works-detail-eyecatch-pc-img, .works-detail-eyecatch-pc-zoom-btn {
   width: 44.0702781845vw;
   height: 28.1844802343vw;
-  top: 2.196193265vw;
+  top: 2.635431918vw;
   left: 5.710102489vw;
 }
 @media screen and (max-width: 767px) {
@@ -10746,6 +10756,10 @@ a:not([class*=tag]):hover, input[type=submit]:not([class*=tag]):hover, button:no
 }
 .detail-contents-main a {
   text-decoration: underline;
+}
+.detail-contents-main a:not(a[href*="kattsu.com"]):not(a[href*=localhost])[target*=blank]:after {
+  content: " \f1c5";
+  font-family: "bootstrap-icons" !important;
 }
 .detail-contents-main h2 {
   font-size: 1.5em;

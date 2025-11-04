@@ -23,13 +23,13 @@
       <?php if ($screenshotPc): ?>
         <button data-modaal-content-source="#screenshot-pc" class="modaal works-detail-eyecatch-pc-zoom-btn">　</button>
         <div id="screenshot-pc" style="display:none">
-          <figure style="text-align:center"><img src="<?php echo $screenshotPc["sizes"]["large"]; ?>" style="width:100%"></figure>
+          <figure style="text-align:center"><img src="<?php echo $screenshotPc["url"]; ?>" style="width:100%"></figure>
         </div>
       <?php endif; ?>
       <?php if (!$screenshotPcOnly && $screenshotSp): ?>
         <button data-modaal-content-source="#screenshot-sp" class="modaal works-detail-eyecatch-sp-zoom-btn">　</button>
         <div id="screenshot-sp" style="display:none">
-          <figure style="text-align:center"><img src="<?php echo $screenshotSp["sizes"]["large"]; ?>" style="max-width:100%;width:375px"></figure>
+          <figure style="text-align:center"><img src="<?php echo $screenshotSp["url"]; ?>" style="max-width:100%;width:375px"></figure>
         </div>
       <?php endif; ?>
     </figure>
@@ -44,10 +44,10 @@
     <section class="detail-contents-meta">
       <ul class="cat-list">
         <?php foreach ( $workscats as $workscat ): ?>
-          <li class="cat-list-item"><a href="<?php echo get_term_link($workscat); ?>" class="cat-list-item-tag"><i class="bi bi-folder"></i>&nbsp;<?php echo $workscat->name; ?></a></li>
+          <li class="cat-list-item"><a href="<?php echo get_term_link($workscat); ?>#works-cat-list" class="cat-list-item-tag"><i class="bi bi-folder"></i>&nbsp;<?php echo $workscat->name; ?></a></li>
         <?php endforeach; ?>
         <?php foreach ( $workstags as $workstag ): ?>
-          <li class="cat-list-item"><a href="<?php echo get_term_link($workstag); ?>" class="cat-list-item-tag">#<?php echo $workstag->name; ?></a></li>
+          <li class="cat-list-item"><a href="<?php echo get_term_link($workstag); ?>#works-cat-list" class="cat-list-item-tag">#<?php echo $workstag->name; ?></a></li>
         <?php endforeach; ?>
       </ul>
       <div class="meta-date">

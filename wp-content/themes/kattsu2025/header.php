@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=M+PLUS+Rounded+1c:wght@400;700;800&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/styles.css">
+  <link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css">
 </head>
 <body <?php body_class(); ?> >
 <header class="header">

@@ -20,10 +20,10 @@
         <?php if ( $workstags && ! is_wp_error( $workstags ) ) :?>
           <div class="works-item-tags">
             <?php foreach ( $workscats as $workscat ): ?>
-              <a href="<?php echo get_term_link($workscat); ?>" class="works-item-tag"><i class="bi bi-folder"></i>&nbsp;<?php echo $workscat->name; ?></a>
+              <a href="<?php echo get_term_link($workscat); ?>#works-cat-list" class="works-item-tag"><i class="bi bi-folder"></i>&nbsp;<?php echo $workscat->name; ?></a>
             <?php endforeach; ?>
             <?php foreach ( $workstags as $workstag ): ?>
-              <a href="<?php echo get_term_link($workstag); ?>" class="works-item-tag">#<?php echo $workstag->name; ?></a>
+              <a href="<?php echo get_term_link($workstag); ?>#works-cat-list" class="works-item-tag">#<?php echo $workstag->name; ?></a>
             <?php endforeach; ?>
           </div>
         <?php endif; ?>
