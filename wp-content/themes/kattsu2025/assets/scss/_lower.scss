@@ -248,6 +248,34 @@
     line-height: 1.4;
     margin: calc(1em * 1.8) 0 calc(1em * .8);
   }
+  .contents-cta{
+    &-msg{
+      font-size: px-to-vw(18);
+      line-height: 1.6;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: px-to-vw(20);
+      @include mq(sp){
+        font-size: 1.6rem;
+        margin-bottom: px-to-vw(10, 375);
+      }
+    }
+    &-buttons{
+      display: flex;
+      justify-content: center;
+      gap: px-to-vw(25);
+    }
+    &-btn{
+      &-secondary{
+        @include btn-secondary;
+        @include btn-common-style;
+      }
+      &-primary{
+        @include btn-primary;
+        @include btn-common-style;
+      }
+    }
+  }
 }
 .detail-contents-meta{
   margin-bottom: $section-bottom / 1.5;

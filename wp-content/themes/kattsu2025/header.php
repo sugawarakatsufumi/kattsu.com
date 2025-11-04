@@ -80,6 +80,12 @@
         <span class="lower-head-ttl-en">WORKS</span><?php single_cat_title(); ?>事例紹介
       </h2>
     </section>
+    <?php elseif( is_404() ): ?>
+      <section class="lower-head lower-works-detail-head">
+        <h2 class="lower-head-ttl">
+          <span class="lower-head-ttl-en">404</span><?php single_cat_title(); ?>ページが見つかりません
+        </h2>
+      </section>
   <?php endif; ?>
 <?php endif; ?>
 <main class="main">

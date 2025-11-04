@@ -40,6 +40,7 @@
     </p>
     <section class="detail-contents-main">
       <?php the_content(); ?>
+      <?php echo get_post_field( 'post_content', 189 ); ?> 
     </section>
     <section class="detail-contents-meta">
       <ul class="cat-list">

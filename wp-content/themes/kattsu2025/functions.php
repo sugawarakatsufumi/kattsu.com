@@ -47,3 +47,13 @@ function enqueue_block_library_css() {
 add_action('wp_enqueue_scripts', 'enqueue_block_library_css');
 
 add_filter( 'big_image_size_threshold', '__return_false' );
+
+//オーサーページを無効化
+function disable_author_archive() {
+  if( preg_match( '#/author/.+#', $_SERVER['REQUEST_URI'] ) ){
+    wp_redirect( esc_url( home_url( '/404.php' ) ) );
+    exit;
+  }
+}
+add_action('init', 'disable_author_archive');
+add_filter( 'author_rewrite_rules', '__return_empty_array' );

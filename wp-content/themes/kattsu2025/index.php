@@ -13,5 +13,14 @@
       </ul>
     </div>
   </section>
+<?php elseif(is_404()): ?>
+  <section class="">
+    <div class="ka2-container" style="text-align:center;">
+      <p><br>申し訳ございません。お探しのページは見つかりませんでした。<br>このページは移動したか、すでに削除された可能性があります。</p>
+    </div>
+    <nav class="contents-nav ka2-container">
+      <a href="/" class="contents-nav-back">トップに戻る <i class="bi bi-arrow-right"></i></a>
+    </nav>
+  </section>
 <?php endif; ?>
 <?php get_footer(); ?>
