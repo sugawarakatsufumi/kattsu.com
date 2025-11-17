@@ -11,6 +11,9 @@
     })(window,document,'script','dataLayer','GTM-MDM5JMV7');</script>
     <!-- End Google Tag Manager -->
   <?php endif; ?>
+  <?php if(is_page('inquiry')): ?>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeKKw8sAAAAAEXd0zYjqvk65AsX8DWKNBrLCtRv"></script>
+  <?php endif; ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php wp_head(); ?>
   <meta name="format-detection" content="telephone=no">
@@ -30,11 +33,11 @@
 <header class="header">
   <div  class="header-inner">
     <div class="header-logo">
-      <h1 class="header-logo-img">
-        <a href="/">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="カッツプロダクション ロゴ">
-        </a>
-      </h1>
+      <?php if(is_front_page() || is_page()): ?>
+        <h1 class="header-logo-img"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="カッツプロダクション ロゴ"></a></h1>
+      <?php else: ?>
+        <div class="header-logo-img"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="カッツプロダクション ロゴ"></a></div>
+      <?php endif; ?>
     </div>
     <nav class="header-nav pc-only">
       <ul class="header-nav-list ">
@@ -77,11 +80,14 @@
   <?php if ( is_page() && get_field('lower_heading_html') ) : ?>
     <?php echo get_field('lower_heading_html'); ?>
   <?php elseif( is_single() ): ?>
-    <section class="lower-head lower-works-detail-head">
-      <h2 class="lower-head-ttl">
-      <?php the_title(); ?>
-    </h2>
-    </section>
+    <?php if( is_singular('works') ): ?>
+      <?php
+        $title_str = get_field('front_title') ? get_field('front_title') : get_the_title();
+      ?>
+      <section class="lower-head lower-works-detail-head"><div class="lower-head-ttl"><?php echo esc_html($title_str); ?></div></section>
+    <?php else: ?>
+      <section class="lower-head lower-works-detail-head"><h1 class="lower-head-ttl"><?php the_title(); ?></h1></section>
+    <?php endif; ?>
   <?php elseif( is_tax('works-cat') || is_tax('works-tag') ): ?>
     <section class="lower-head">
       <h2 class="lower-head-ttl">

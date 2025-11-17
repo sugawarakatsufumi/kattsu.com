@@ -4,3 +4,28 @@ Version: 1.1
 Author: ka2production
 */
 /*スタイル等はここに追加*/
+.detail-contents-main .wp-block-list{
+  list-style-type: disc;
+  margin: 1em 0;
+  padding-left: 1em;
+}
+.detail-contents-main .detail-contents-title{
+  margin-bottom: 1em;
+  font-weight: 600;
+  font-size: calc(30 / 1366 * 100vw);
+}
+.detail-contents-main .wp-block-image, .detail-contents-main .wp-block-video{
+  margin-bottom: 1em;
+}
+.detail-contents-main .wp-block-image  :where(figcaption), .detail-contents-main .wp-block-video :where(figcaption){
+  font-size: 90%;
+}
+@media screen and (max-width: 767px) {
+  .detail-contents-main .detail-contents-title{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+.detail-contents-main [class*="contents-cta-btn"]{
+  text-decoration: none !important;
+}

@@ -1,5 +1,51 @@
 <?php header("Content-Type:text/html;charset=utf-8"); ?>
 <?php //error_reporting(E_ALL | E_STRICT);
+
+//Google reCAPTCHA エラーチェック
+if (isset($_POST['recaptcha_response'])) {
+	// reCAPTCHAのシークレットキー
+	$secretKey =  '6LeKKw8sAAAAALB4sjr8CUQ06wz4vBPhFcAR1-GI';
+	// reCAPTCHAのレスポンス
+	$recaptcha_response = $_POST['recaptcha_response'];
+	// APIリクエスト
+	$verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptcha_response}");
+	// APIレスポンス確認
+	$responseData = json_decode($verifyResponse);
+	if ($responseData === null || !isset($responseData->success) || $responseData->success !== true) {
+			//成功していない場合は、エラーコードを表示して処理を停止
+			$error_codes = isset($responseData->{'error-codes'}) ? implode(', ', $responseData->{'error-codes'}) : 'Unknown API Error';
+			//echo "reCAPTCHA API 認証失敗: {$error_codes}<br>";
+			spam_log_and_notify($_POST, $error_codes);
+			exit;
+	}else{
+		if ($responseData->score < 0.5) {
+			$score = isset($responseData->score) ? $responseData->score : 'No Score';
+			//echo "invalid request: {$score}<br>"; // 失敗
+			spam_log_and_notify($_POST, "score:".$score);
+			exit; // 処理を停止
+		}else{
+			if (isset($_POST['recaptcha_response'])) {
+				unset($_POST['recaptcha_response']);
+			}
+		}
+	}
+}
+function spam_log_and_notify( $post_data, $reason ) {
+  $developer_email = 'spam.check.wkgp.form@kattsu.com';
+  $referer = $_SERVER['HTTP_REFERER'] ?? 'Unknown/Direct Access'; 
+ 	$subject = "[SPAM BLOCKED] reCAPTCHA 認証失敗 ({$reason})";
+  $body = "日時: " . $data_to_log['timestamp'] . "\n";
+  $body .= "理由: {$reason}\n";
+  $body .= "送信元IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'Unknown') . "\n";
+  $body .= "リファラー: {$referer}\n"; // ★★★ ここにリファラーを追加 ★★★
+  $body .= "---------------------------------------\n";
+  $body .= "POSTデータ:\n" . print_r($post_data, true);
+  $headers = "From: noreply@" . ($_SERVER['SERVER_NAME'] ?? 'localhost') . "\r\n";
+  $headers .= "Content-Type: text/plain; charset=UTF-8";  
+  mail($developer_email, $subject, $body, $headers); 
+}
+
+
 ##-----------------------------------------------------------------------------------------------------------------##
 #
 #  PHPメールプログラム　フリー版 ver2.0.3 最終更新日2022/02/01

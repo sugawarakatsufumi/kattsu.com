@@ -45,6 +45,14 @@ $(function(){
     errorElement: 'span',
     errorPlacement: function (error, element) {
       error.insertAfter(element);
+    },
+    submitHandler: function(form) {
+      console.log('grecaptcha execute');
+      grecaptcha.execute('6LeKKw8sAAAAAEXd0zYjqvk65AsX8DWKNBrLCtRv', {action: 'submit'}).then(function(token) {
+        var recaptchaResponse = document.getElementById('recaptchaResponse');
+        recaptchaResponse.value = token;
+        form.submit();
+      });
     }
   });
   $('.modaal').modaal({

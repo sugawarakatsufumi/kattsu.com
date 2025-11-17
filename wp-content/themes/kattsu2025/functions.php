@@ -33,16 +33,22 @@ function custom_template_part_shortcode( $atts ) {
 }
 add_shortcode( 'snippet', 'custom_template_part_shortcode' );
 
-remove_filter('the_content', 'wpautop');
-remove_filter('the_excerpt', 'wpautop');
+function years_since_2009_shortcode() {
+  return date('Y') - 2009;
+}
+add_shortcode('years_since_2009', 'years_since_2009_shortcode');
+
+function disable_wpautop_for_specific_post_type($content) {
+  if (get_post_type() === 'page') {
+    remove_filter('the_content', 'wpautop');
+  }
+  return $content;
+}
+add_filter('the_content', 'disable_wpautop_for_specific_post_type', 9);
 
 function enqueue_block_library_css() {
-  wp_enqueue_style(
-    'wp-block-library', // ハンドル名
-    includes_url('css/dist/block-library/style.min.css'), // パス
-    array(), // 依存関係
-    null // バージョン
-  );
+  wp_enqueue_style('wp-block-library-orgn', includes_url('css/dist/block-library/style.min.css'),array(), null);
+  wp_enqueue_style('wp-style-orgn', get_template_directory_uri() . '/style.css',array(), null);
 }
 add_action('wp_enqueue_scripts', 'enqueue_block_library_css');
 

@@ -5,16 +5,17 @@
           $workscats = get_the_terms( get_the_ID(), 'works-cat' );
           $dtpFlg = in_array( 'dtp', wp_list_pluck( $workscats, 'slug' ) );
           $screenshotPcOnly = get_field('screenshot_pc_only');
+          $title_str = get_field('front_title') ? get_field('front_title') : get_the_title();
         ?>
         <a href="<?php the_permalink(); ?>" class="works-item-link">
           <figure class="works-item-figure <?php if ($screenshotPcOnly) echo 'cat-dtp'; ?>">
-            <div class="works-item-pc-img"><img src="<?php echo $thumbPc["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?> イメージ"></div>
+            <div class="works-item-pc-img"><img src="<?php echo $thumbPc["sizes"]["medium_large"]; ?>" alt="<?php echo $title_str; ?> イメージ"></div>
             <?php if (!$screenshotPcOnly) :?>
-              <div class="works-item-sp-img"><img src="<?php echo $thumbSp["sizes"]["medium_large"]; ?>" alt="<?php echo get_the_title(); ?>イメージ スマホ表示"></div>
+              <div class="works-item-sp-img"><img src="<?php echo $thumbSp["sizes"]["medium_large"]; ?>" alt="<?php echo $title_str; ?>イメージ スマホ表示"></div>
             <?php endif; ?>
           </figure>
           <div class="works-item-body">
-            <h3 class="works-item-title"><?php echo get_the_title(); ?></h3>
+            <h3 class="works-item-title"><?php echo $title_str; ?></h3>
           </div>
         </a>
         <?php if ( $workstags && ! is_wp_error( $workstags ) ) :?>

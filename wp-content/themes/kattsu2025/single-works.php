@@ -39,6 +39,12 @@
       <?php endif; ?>
     </p>
     <section class="detail-contents-main">
+      <?php
+       //$titleStr = get_field('front_title') ? get_field('front_title') : get_the_title();
+      ?>
+      <?php if( get_field('front_title') ): ?>
+        <h1 class="detail-contents-title"><?php echo get_the_title(); ?></h1>
+      <?php endif; ?>
       <?php the_content(); ?>
       <?php echo get_post_field( 'post_content', 189 ); ?> 
     </section>
